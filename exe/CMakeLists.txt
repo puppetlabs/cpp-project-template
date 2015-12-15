@@ -23,7 +23,7 @@ target_link_libraries(${PROJECT_NAME}
     ${LEATHERMAN_LIBRARIES}
 )
 
-install(TARGETS ${PROJECT_NAME} DESTINATION bin)
+leatherman_install(${PROJECT_NAME})
 
 # Tests for the executable. These don't verify behavior, simply that the executable runs
 # without crashing or generating an error. Useful, but should be enhanced with test scripts
