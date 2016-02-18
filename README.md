@@ -25,7 +25,6 @@ Finally update the project() name in CMakeLists.txt.
 This template is a fully functional example, and can be built with
 
 ```
-git submodule update --init
 mkdir build && cd build
 cmake ..
 make -j

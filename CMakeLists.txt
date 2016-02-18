@@ -19,9 +19,11 @@ endif()
 enable_testing()
 
 # Leatherman setup
-list(APPEND CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/vendor/leatherman/cmake")
+SET(LEATHERMAN_COMPONENTS locale catch nowide logging)
+find_package(Leatherman REQUIRED COMPONENTS ${LEATHERMAN_COMPONENTS})
 
-## Before we find any packages, we want to pull in the common leatherman options, as they can affect commonly-used packages.
+# Now that we have leatherman, we can pull in its options file, which
+# we need for finding all our other libraries.
 include(options)
 ## Pull in common cflags setting from leatherman. Don't override CMAKE_CXX_FLAGS at the project root to avoid impacting 3rd party code.
 include(cflags)
@@ -36,13 +38,6 @@ find_package(Boost 1.54 REQUIRED COMPONENTS program_options)
 # Display a summary of the features
 include(FeatureSummary)
 feature_summary(WHAT ALL)
-
-# Add build directories, both Leatherman and the project's source code
-set(LEATHERMAN_USE_LOCALE TRUE)
-set(LEATHERMAN_USE_CATCH TRUE)
-set(LEATHERMAN_USE_NOWIDE TRUE)
-set(LEATHERMAN_USE_LOGGING TRUE)
-add_subdirectory("vendor/leatherman")
 
 add_subdirectory(lib)
 add_subdirectory(exe)
