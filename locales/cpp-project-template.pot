@@ -1,6 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR Puppet <docs@puppet.com>
-# This file is distributed under the same license as the PACKAGE package.
+# This file is distributed under the same license as the cpp-project-template package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 #, fuzzy
@@ -40,7 +40,23 @@ msgid ""
 msgstr ""
 
 #: exe/cpp-project-template.cc
-msgid "produce help message"
+msgid "Enable full debugging."
+msgstr ""
+
+#: exe/cpp-project-template.cc
+msgid "Print this help message."
+msgstr ""
+
+#: exe/cpp-project-template.cc
+msgid "Silences all output."
+msgstr ""
+
+#: exe/cpp-project-template.cc
+msgid "Enable verbosity."
+msgstr ""
+
+#: exe/cpp-project-template.cc
+msgid "Print the program's version number and exit."
 msgstr ""
 
 #: exe/cpp-project-template.cc
@@ -50,11 +66,7 @@ msgid ""
 msgstr ""
 
 #: exe/cpp-project-template.cc
-msgid "print the version and exit"
-msgstr ""
-
-#: exe/cpp-project-template.cc
-msgid "error: {1}"
+msgid "Error: {1}"
 msgstr ""
 
 #: exe/cpp-project-template.cc
