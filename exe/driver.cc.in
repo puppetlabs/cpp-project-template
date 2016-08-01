@@ -1,6 +1,7 @@
 #include <@PROJECT_NAME@/@PROJECT_NAME@.hpp>
 #include <boost/nowide/iostream.hpp>
 #include <boost/nowide/args.hpp>
+#include <leatherman/locale/locale.hpp>
 #include <leatherman/logging/logging.hpp>
 
 // boost includes are not always warning-clean. Disable warnings that
@@ -12,27 +13,33 @@
 
 using namespace std;
 using namespace leatherman::logging;
+using namespace leatherman::locale;
 namespace po = boost::program_options;
+
+// Mark string for translation--a helper macro for simple cases
+// More complex cases should use leatherman::locale::translate(...)
+// and leatherman::locale::format(...) directly.
+#define _(...) leatherman::locale::format(__VA_ARGS__)
 
 void help(po::options_description& desc)
 {
     boost::nowide::cout <<
-        "Synopsis\n"
-        "========\n"
-        "\n"
-        "Example command-line utility.\n"
-        "\n"
-        "Usage\n"
-        "=====\n"
-        "\n"
-        "  @PROJECT_NAME@ [options]\n"
-        "\n"
-        "Options\n"
-        "=======\n\n" << desc <<
-        "\nDescription\n"
-        "===========\n"
-        "\n"
-        "Displays its own version string." << endl;
+        _("Synopsis\n"
+          "========\n"
+          "\n"
+          "Example command-line utility.\n"
+          "\n"
+          "Usage\n"
+          "=====\n"
+          "\n"
+          "  @PROJECT_NAME@ [options]\n"
+          "\n"
+          "Options\n"
+          "=======\n\n"
+          "{1}\nDescription\n"
+          "===========\n"
+          "\n"
+          "Displays its own version string.", desc) << endl;
 }
 
 int main(int argc, char **argv) {
@@ -45,9 +52,9 @@ int main(int argc, char **argv) {
 
         po::options_description command_line_options("");
         command_line_options.add_options()
-            ("help,h", "produce help message")
-            ("log-level,l", po::value<log_level>()->default_value(log_level::warning, "warn"), "Set logging level.\nSupported levels are: none, trace, debug, info, warn, error, and fatal.")
-            ("version,v", "print the version and exit");
+            ("help,h", _("produce help message").c_str())
+            ("log-level,l", po::value<log_level>()->default_value(log_level::warning, "warn"), _("Set logging level.\nSupported levels are: none, trace, debug, info, warn, error, and fatal.").c_str())
+            ("version,v", _("print the version and exit").c_str());
 
         po::variables_map vm;
 
@@ -62,7 +69,7 @@ int main(int argc, char **argv) {
             po::notify(vm);
         } catch (exception& ex) {
             colorize(boost::nowide::cerr, log_level::error);
-            boost::nowide::cerr << "error: " << ex.what() << "\n" << endl;
+            boost::nowide::cerr << _("error: {1}", ex.what()) << endl;
             colorize(boost::nowide::cerr);
             help(command_line_options);
             return EXIT_FAILURE;
@@ -78,12 +85,12 @@ int main(int argc, char **argv) {
         }
     } catch (exception& ex) {
         colorize(boost::nowide::cerr, log_level::fatal);
-        boost::nowide::cerr << "unhandled exception: " << ex.what() << "\n" << endl;
+        boost::nowide::cerr << _("unhandled exception: {1}", ex.what()) << endl;
         colorize(boost::nowide::cerr);
         return EXIT_FAILURE;
     }
 
-    boost::nowide::cout << "Hello!" << endl;
+    boost::nowide::cout << _("Hello!") << endl;
 
     return error_has_been_logged() ? EXIT_FAILURE : EXIT_SUCCESS;
 }

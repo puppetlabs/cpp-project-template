@@ -9,7 +9,7 @@ namespace @PROJECT_NAME_LOWER@ {
 
     string version()
     {
-        LOG_DEBUG("@PROJECT_NAME@ version is %1%", @PROJECT_NAME_UPPER@_VERSION_WITH_COMMIT);
+        LOG_DEBUG("@PROJECT_NAME@ version is {1}", @PROJECT_NAME_UPPER@_VERSION_WITH_COMMIT);
         return @PROJECT_NAME_UPPER@_VERSION_WITH_COMMIT;
     }
 
