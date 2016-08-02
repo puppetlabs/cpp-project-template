@@ -14,10 +14,10 @@ Gemfile.lock
 /lib/Doxyfile
 /lib/html/
 /lib/docs/
-/debug*/
-/release*/
+/*debug*/
+/*release*/
 /.idea/
-/build/
+/*build*/
 acceptance/.bundle/
 acceptance/vendor/
 acceptance/junit/
