@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "file_format": "This MAINTAINERS file format is described at http://pup.pt/maintainers",
+  "issues": "https://github.com/puppetlabs/cpp-project-template/issues",
+  "internal_list": "https://groups.google.com/a/puppet.com/forum/#!forum/discuss-c-plus-plus",
+  "people": [
+    {
+      "github": "MikaelSmith",
+      "email": "michael.smith@puppet.com",
+      "name": "Michael Smith"
+    },
+    {
+      "github": "branan",
+      "email": "branan@puppet.com",
+      "name": "Branan Riley"
+    },
+    {
+      "github": "magisus",
+      "email": "maggie@puppet.com",
+      "name": "Maggie Dreyer"
+    }
+  ]
+}
