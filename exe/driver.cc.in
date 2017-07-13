@@ -16,11 +16,6 @@ using namespace leatherman::logging;
 using namespace leatherman::locale;
 namespace po = boost::program_options;
 
-// Mark string for translation--a helper macro for simple cases
-// More complex cases should use leatherman::locale::translate(...)
-// and leatherman::locale::format(...) directly.
-#define _(...) leatherman::locale::format(__VA_ARGS__)
-
 void help(po::options_description& desc)
 {
     boost::nowide::cout <<
