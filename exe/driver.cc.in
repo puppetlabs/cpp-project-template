@@ -1,6 +1,7 @@
 #include <@PROJECT_NAME@/@PROJECT_NAME@.hpp>
 #include <boost/nowide/iostream.hpp>
 #include <boost/nowide/args.hpp>
+#include <boost/filesystem.hpp>
 #include <leatherman/locale/locale.hpp>
 #include <leatherman/logging/logging.hpp>
 
@@ -59,6 +60,10 @@ int main(int argc, char **argv) {
 
         // Setup logging
         setup_logging(boost::nowide::cerr);
+
+        // Setup UTF-8 for filesystem operations (on Windows)
+        // When Boost is statically linked, this needs to be done in every binary using Boost.Filesystem.
+        boost::filesystem::path::imbue(leatherman::locale::get_locale());
 
         po::options_description visible_options("");
         visible_options.add_options()

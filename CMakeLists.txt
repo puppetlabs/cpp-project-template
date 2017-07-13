@@ -34,7 +34,7 @@ add_definitions(-DLEATHERMAN_I18N)
 include(leatherman)
 
 # Add other dependencies
-find_package(Boost 1.54 REQUIRED COMPONENTS program_options locale)
+find_package(Boost 1.54 REQUIRED COMPONENTS program_options locale filesystem)
 
 # Display a summary of the features
 include(FeatureSummary)
