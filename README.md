@@ -1,5 +1,7 @@
 # CppProjectTemplate
 
+> At this time we don't anticipate starting new C++ projects, so this template has been archived.
+
 CppProjectTemplate is a C++ project template for use in creating new command-line utility projects using PuppetLabs' shared libraries.
 
 ## Required packages
